@@ -2,7 +2,7 @@
 - 👀 I’m interested in Coding
 - 🌱 I’m currently learning Web app development
 - 💞️ I’m looking to collaborate on programming projects where possible
-- 📫 How to reach me +256785162272 or Ssaava.Adam@gmail.com
+- 📫 How to reach me +256792396654 or Ssaava.Adam@gmail.com
 - 😄 Pronouns: Mister
 - ⚡ Fun fact: I am a human being
 
