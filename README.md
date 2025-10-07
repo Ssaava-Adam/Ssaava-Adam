@@ -4,9 +4,7 @@ This README appears on your GitHub profile!
 --->
 
 <!-- Animated Header Banner -->
-<p align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=26&duration=3000&pause=1000&color=00C7FF&center=true&vCenter=true&width=550&lines=Hey+there!+👋+I'm+Ssaava+Adam;Web+Developer+%7C+Tech+Enthusiast;Lifelong+Learner+%7C+Problem+Solver" alt="Typing SVG" />
-</p>
+<h1 align="center">👋 Hi there, I'm <a href="https://github.com/Ssaava-Adam">Ssaava Adam</a>!</h1>
 
 <h3 align="center">💻 Web Developer | Tech Enthusiast | Lifelong Learner</h3>
 
