@@ -16,9 +16,9 @@ This README appears on your GitHub profile!
 - 👀 I’m passionate about **coding**, **web development**, and **open-source projects**  
 - 🌱 Currently learning **Web App Development** (React, Node.js, Databases)  
 - 💞️ Open to collaborate on **creative and impactful projects**  
-- 📫 Reach me at **[Ssaava.Adam@gmail.com](mailto:Ssaava.Adam@gmail.com)** or **+256 792 396654**  
+- 📫 Reach me at **[Ssaava.Adam@gmail.com](mailto:Ssaava.Adam@gmail.com)** or **+256 792 306654**  
 - 😄 Pronouns: **He / Him**  
-- ⚡ Fun fact: *I’m 100% human — but I debug like a robot 🤖*
+- ⚡ Fun fact: *I’m 100% human — but I debug like a robot 🤖, i think in loops and conditions not feelings and emotions.*
 
 ---
 
@@ -63,9 +63,9 @@ This README appears on your GitHub profile!
 ### 🌐 Connect With Me
 
 <p align="center">
-  <a href="mailto:Ssaava.Adam@gmail.com"><img src="https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white"/></a>
-  <a href="https://www.linkedin.com/in/YOUR-LINK-HERE"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"/></a>
-  <a href="https://wa.me/256792396654"><img src="https://img.shields.io/badge/WhatsApp-25D366?style=for-the-badge&logo=whatsapp&logoColor=white"/></a>
+  <a href="mailto:ssaava.adam@gmail.com"><img src="https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white"/></a>
+  <a href="https://www.linkedin.com/in/mr-ssaava-adam"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"/></a>
+  <a href="https://wa.me/256792306654"><img src="https://img.shields.io/badge/WhatsApp-25D366?style=for-the-badge&logo=whatsapp&logoColor=white"/></a>
   <a href="https://github.com/Ssaava-Adam"><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white"/></a>
 </p>
 
