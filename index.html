@@ -1,127 +1,691 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
- <meta charset="UTF-8" />
- <meta name="viewport" content="width=device-width, initial-scale=1.0" />
- <meta name="description" content="Ssaava Adam - Web Developer Portfolio & Resume" />
- <title>Ssaava Adam | Web Developer</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Ssaava Adam - Professional Web Developer Portfolio & Resume" />
+    <meta name="keywords" content="Web Developer, Frontend, Backend, Full Stack, React, Node.js, Uganda" />
+    <meta name="author" content="Ssaava Adam" />
+    <title>Ssaava Adam | Full Stack Web Developer</title>
 
- <!-- Fonts & Icons -->
- <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
- <!-- TailwindCSS CDN -->
- <script src="https://cdn.tailwindcss.com"></script>
+    <!-- TailwindCSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
 
- <!-- GSAP CDN for Animations -->
- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <!-- GSAP CDN for Animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
- <!-- Three.js CDN for 3D Effects -->
- <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r152/three.min.js"></script>
-
- <style>
-  body { margin:0; font-family:'Poppins',sans-serif; scroll-behavior:smooth; }
-  header { min-height:100vh; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; background:linear-gradient(135deg,#0f2027,#203a43,#2c5364); color:#fff; }
-  h1 { font-size:3rem; margin-bottom:0.5rem; background:linear-gradient(90deg,#00C7FF,#FF00FF,#00FFAA); -webkit-background-clip:text; color:transparent; }
-  h2 { font-size:1.5rem; margin-bottom:1rem; color:#80e0ff; }
-  nav { position:fixed; top:0; width:100%; display:flex; justify-content:center; background:rgba(0,0,0,0.6); padding:1rem; z-index:1000; }
-  nav a { margin:0 1rem; color:#fff; font-weight:600; transition:color 0.3s; }
-  nav a:hover { color:#00C7FF; }
-  section { padding:5rem 2rem; }
-  .section-title { font-size:2rem; font-weight:700; text-align:center; margin-bottom:2rem; background:linear-gradient(90deg,#00C7FF,#FF00FF,#00FFAA); -webkit-background-clip:text; color:transparent; }
-  .skills, .projects { display:flex; flex-wrap:wrap; justify-content:center; gap:1.5rem; }
-  .skill-card, .project-card { background:rgba(255,255,255,0.05); border-radius:1rem; padding:1.5rem; flex:1 1 200px; max-width:250px; transition:all 0.3s; text-align:center; }
-  .skill-card:hover, .project-card:hover { transform:translateY(-10px) scale(1.05); background:rgba(255,255,255,0.15); }
-  .contact-form { display:flex; flex-direction:column; max-width:400px; margin:0 auto; }
-  .contact-form input, .contact-form textarea { margin-bottom:1rem; padding:0.75rem; border-radius:0.5rem; border:none; }
-  .contact-form button { padding:0.75rem; border-radius:0.5rem; border:none; background:#00C7FF; color:#000; font-weight:600; cursor:pointer; transition:all 0.3s; }
-  .contact-form button:hover { background:#80e0ff; transform:scale(1.05); }
-  footer { text-align:center; padding:2rem; color:#ccc; }
- </style>
+    <style>
+        :root {
+            --primary: #00C7FF;
+            --secondary: #FF00FF;
+            --accent: #00FFAA;
+            --dark: #0f172a;
+            --darker: #0a0f1c;
+            --light: #f8fafc;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--darker);
+            color: var(--light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: inline-block;
+        }
+        
+        .section-title {
+            position: relative;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            border-radius: 2px;
+        }
+        
+        .nav-link {
+            position: relative;
+            padding: 0.5rem 0;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .skill-card, .project-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+        
+        .skill-card:hover, .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0, 199, 255, 0.15);
+            border-color: rgba(0, 199, 255, 0.3);
+        }
+        
+        .project-card {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .project-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 23, 42, 0.9);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            padding: 1.5rem;
+        }
+        
+        .project-card:hover .project-overlay {
+            opacity: 1;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            color: var(--dark);
+            font-weight: 600;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 199, 255, 0.4);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            color: var(--primary);
+            border: 1px solid var(--primary);
+            font-weight: 500;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .btn-outline:hover {
+            background: rgba(0, 199, 255, 0.1);
+            transform: translateY(-3px);
+        }
+        
+        .contact-form input, .contact-form textarea {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 0.75rem 1rem;
+            color: var(--light);
+            width: 100%;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-form input:focus, .contact-form textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 2px rgba(0, 199, 255, 0.2);
+        }
+        
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0% { transform: translate(0, 0px); }
+            50% { transform: translate(0, 15px); }
+            100% { transform: translate(0, -0px); }
+        }
+        
+        .particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+        
+        .typewriter {
+            overflow: hidden;
+            border-right: 2px solid var(--primary);
+            white-space: nowrap;
+            margin: 0 auto;
+            animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+        }
+        
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+        
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: var(--primary) }
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .section-title::after {
+                left: 0;
+                transform: none;
+            }
+            
+            .hero-content {
+                text-align: center;
+            }
+        }
+    </style>
 </head>
 
-<body>
+<body class="bg-gray-900 text-white">
 
- <!-- Navigation -->
- <nav>
-  <a href="#about">About</a>
-  <a href="#skills">Skills</a>
-  <a href="#projects">Projects</a>
-  <a href="#contact">Contact</a>
- </nav>
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 transition-all duration-300 bg-gray-900/80 backdrop-blur-md py-4">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <a href="#" class="text-xl font-bold gradient-text">Ssaava Adam</a>
+            <div class="hidden md:flex space-x-8">
+                <a href="#about" class="nav-link">About</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-white focus:outline-none">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-gray-800/95 backdrop-blur-md py-4 px-6">
+            <div class="flex flex-col space-y-4">
+                <a href="#about" class="nav-link">About</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+        </div>
+    </nav>
 
- <!-- Header / Hero -->
- <header id="about">
-  <h1>👋 Hi, I'm Ssaava Adam</h1>
-  <h2>💻 Web Developer | Tech Enthusiast | Lifelong Learner</h2>
-  <p class="max-w-xl">I build modern web applications with creativity and precision. Passionate about learning and collaborating on impactful projects.</p>
- </header>
+    <!-- Header / Hero -->
+    <header id="about" class="min-h-screen flex items-center relative overflow-hidden pt-20">
+        <div class="particles-js" id="particles-js"></div>
+        <div class="container mx-auto px-6 py-20">
+            <div class="flex flex-col md:flex-row items-center justify-between">
+                <div class="hero-content md:w-1/2 mb-12 md:mb-0">
+                    <h1 class="text-4xl md:text-6xl font-bold mb-4">
+                        <span class="gradient-text">Ssaava Adam</span>
+                    </h1>
+                    <h2 class="text-xl md:text-2xl text-cyan-300 mb-6 typewriter">Full Stack Web Developer</h2>
+                    <p class="text-lg text-gray-300 mb-8 max-w-xl">
+                        I build modern, responsive web applications with clean code and creative solutions. 
+                        Passionate about learning new technologies and collaborating on impactful projects.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#projects" class="btn-primary">
+                            View My Work
+                        </a>
+                        <a href="#contact" class="btn-outline">
+                            Get In Touch
+                        </a>
+                    </div>
+                </div>
+                <div class="md:w-1/2 flex justify-center">
+                    <div class="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-cyan-500/30 floating">
+                        <div class="w-full h-full bg-gradient-to-br from-cyan-500 to-purple-600 flex items-center justify-center">
+                            <i class="fas fa-code text-white text-6xl"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2">
+            <a href="#skills" class="text-cyan-300 animate-bounce">
+                <i class="fas fa-chevron-down text-2xl"></i>
+            </a>
+        </div>
+    </header>
 
- <!-- Skills Section -->
- <section id="skills">
-  <h2 class="section-title">🧰 My Skills</h2>
-  <div class="skills">
-   <div class="skill-card"><i class="fab fa-html5 fa-2x"></i><p>HTML</p></div>
-   <div class="skill-card"><i class="fab fa-css3-alt fa-2x"></i><p>CSS</p></div>
-   <div class="skill-card"><i class="fab fa-js-square fa-2x"></i><p>JavaScript</p></div>
-   <div class="skill-card"><i class="fab fa-react fa-2x"></i><p>React.js</p></div>
-   <div class="skill-card"><i class="fab fa-node fa-2x"></i><p>Node.js</p></div>
-   <div class="skill-card"><i class="fas fa-database fa-2x"></i><p>MongoDB / MySQL</p></div>
-   <div class="skill-card"><i class="fab fa-git-alt fa-2x"></i><p>Git & GitHub</p></div>
-   <div class="skill-card"><i class="fas fa-code fa-2x"></i><p>TailwindCSS</p></div>
-   <div class="skill-card"><i class="fas fa-magic fa-2x"></i><p>GSAP Animations</p></div>
-   <div class="skill-card"><i class="fas fa-cubes fa-2x"></i><p>Three.js 3D</p></div>
-  </div>
- </section>
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-gray-800/50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 section-title">Technical Skills</h2>
+            <p class="text-gray-400 text-center max-w-2xl mx-auto mb-12">
+                Here are the technologies and tools I work with to bring ideas to life
+            </p>
+            
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+                <div class="skill-card p-6 text-center">
+                    <i class="fab fa-html5 text-5xl text-orange-500 mb-4"></i>
+                    <h3 class="font-semibold">HTML5</h3>
+                </div>
+                <div class="skill-card p-6 text-center">
+                    <i class="fab fa-css3-alt text-5xl text-blue-500 mb-4"></i>
+                    <h3 class="font-semibold">CSS3</h3>
+                </div>
+                <div class="skill-card p-6 text-center">
+                    <i class="fab fa-js-square text-5xl text-yellow-400 mb-4"></i>
+                    <h3 class="font-semibold">JavaScript</h3>
+                </div>
+                <div class="skill-card p-6 text-center">
+                    <i class="fab fa-react text-5xl text-cyan-400 mb-4"></i>
+                    <h3 class="font-semibold">React.js</h3>
+                </div>
+                <div class="skill-card p-6 text-center">
+                    <i class="fab fa-node-js text-5xl text-green-500 mb-4"></i>
+                    <h3 class="font-semibold">Node.js</h3>
+                </div>
+                <div class="skill-card p-6 text-center">
+                    <i class="fas fa-database text-5xl text-green-400 mb-4"></i>
+                    <h3 class="font-semibold">MongoDB</h3>
+                </div>
+                <div class="skill-card p-6 text-center">
+                    <i class="fas fa-database text-5xl text-blue-400 mb-4"></i>
+                    <h3 class="font-semibold">MySQL</h3>
+                </div>
+                <div class="skill-card p-6 text-center">
+                    <i class="fab fa-git-alt text-5xl text-orange-600 mb-4"></i>
+                    <h3 class="font-semibold">Git</h3>
+                </div>
+                <div class="skill-card p-6 text-center">
+                    <i class="fab fa-github text-5xl text-gray-300 mb-4"></i>
+                    <h3 class="font-semibold">GitHub</h3>
+                </div>
+                <div class="skill-card p-6 text-center">
+                    <i class="fab fa-figma text-5xl text-purple-500 mb-4"></i>
+                    <h3 class="font-semibold">Figma</h3>
+                </div>
+            </div>
+        </div>
+    </section>
 
- <!-- Projects Section -->
- <section id="projects">
-  <h2 class="section-title">🚀 Featured Projects</h2>
-  <div class="projects">
-   <div class="project-card">
-    <h3>Portfolio Website</h3>
-    <p>A modern responsive portfolio built with HTML, CSS, and TailwindCSS.</p>
-    <a href="https://github.com/Ssaava-Adam" target="_blank">View on GitHub</a>
-   </div>
-   <div class="project-card">
-    <h3>Todo App</h3>
-    <p>A CRUD Todo application using React and Node.js backend.</p>
-    <a href="https://github.com/Ssaava-Adam" target="_blank">View on GitHub</a>
-   </div>
-   <div class="project-card">
-    <h3>3D Animation Demo</h3>
-    <p>Interactive 3D effects created using Three.js and GSAP.</p>
-    <a href="https://github.com/Ssaava-Adam" target="_blank">View on GitHub</a>
-   </div>
-  </div>
- </section>
+    <!-- Projects Section -->
+    <section id="projects" class="py-20">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 section-title">Featured Projects</h2>
+            <p class="text-gray-400 text-center max-w-2xl mx-auto mb-12">
+                Here are some of my recent projects that showcase my skills and creativity
+            </p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="project-card rounded-xl overflow-hidden">
+                    <div class="h-48 bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center">
+                        <i class="fas fa-laptop-code text-white text-6xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Portfolio Website</h3>
+                        <p class="text-gray-400 mb-4">A modern responsive portfolio built with HTML, CSS, and JavaScript.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-cyan-900/30 text-cyan-300 rounded-full text-sm">HTML</span>
+                            <span class="px-3 py-1 bg-blue-900/30 text-blue-300 rounded-full text-sm">CSS</span>
+                            <span class="px-3 py-1 bg-yellow-900/30 text-yellow-300 rounded-full text-sm">JavaScript</span>
+                        </div>
+                        <a href="https://github.com/Ssaava-Adam" target="_blank" class="btn-outline w-full text-center">
+                            View Project
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="project-card rounded-xl overflow-hidden">
+                    <div class="h-48 bg-gradient-to-br from-purple-500 to-pink-600 flex items-center justify-center">
+                        <i class="fas fa-tasks text-white text-6xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Todo Application</h3>
+                        <p class="text-gray-400 mb-4">A CRUD Todo application using React and Node.js backend.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-cyan-900/30 text-cyan-300 rounded-full text-sm">React</span>
+                            <span class="px-3 py-1 bg-green-900/30 text-green-300 rounded-full text-sm">Node.js</span>
+                            <span class="px-3 py-1 bg-yellow-900/30 text-yellow-300 rounded-full text-sm">MongoDB</span>
+                        </div>
+                        <a href="https://github.com/Ssaava-Adam" target="_blank" class="btn-outline w-full text-center">
+                            View Project
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="project-card rounded-xl overflow-hidden">
+                    <div class="h-48 bg-gradient-to-br from-green-500 to-teal-600 flex items-center justify-center">
+                        <i class="fas fa-cube text-white text-6xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">3D Animation Demo</h3>
+                        <p class="text-gray-400 mb-4">Interactive 3D effects created using Three.js and GSAP.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-purple-900/30 text-purple-300 rounded-full text-sm">Three.js</span>
+                            <span class="px-3 py-1 bg-green-900/30 text-green-300 rounded-full text-sm">GSAP</span>
+                            <span class="px-3 py-1 bg-blue-900/30 text-blue-300 rounded-full text-sm">JavaScript</span>
+                        </div>
+                        <a href="https://github.com/Ssaava-Adam" target="_blank" class="btn-outline w-full text-center">
+                            View Project
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="https://github.com/Ssaava-Adam" target="_blank" class="btn-primary">
+                    View More on GitHub
+                </a>
+            </div>
+        </div>
+    </section>
 
- <!-- Contact Section -->
- <section id="contact">
-  <h2 class="section-title">📫 Contact Me</h2>
-  <form class="contact-form">
-   <input type="text" placeholder="Your Name" required />
-   <input type="email" placeholder="Your Email" required />
-   <textarea rows="4" placeholder="Your Message" required></textarea>
-   <button type="submit">Send Message</button>
-  </form>
-  <p class="mt-4">Email: <a href="mailto:Ssaava.Adam@gmail.com">Ssaava.Adam@gmail.com</a></p>
-  <p>Phone: <a href="tel:+256792396654">+256 792 396654</a></p>
-  <p>LinkedIn: <a href="https://www.linkedin.com/in/YOUR-LINK-HERE" target="_blank">Add Link</a></p>
- </section>
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gray-800/50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 section-title">Get In Touch</h2>
+            <p class="text-gray-400 text-center max-w-2xl mx-auto mb-12">
+                Have a project in mind or want to collaborate? Feel free to reach out!
+            </p>
+            
+            <div class="flex flex-col lg:flex-row gap-12">
+                <div class="lg:w-1/2">
+                    <form class="contact-form space-y-6">
+                        <div>
+                            <input type="text" placeholder="Your Name" required class="w-full" />
+                        </div>
+                        <div>
+                            <input type="email" placeholder="Your Email" required class="w-full" />
+                        </div>
+                        <div>
+                            <textarea rows="5" placeholder="Your Message" required class="w-full"></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary w-full">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+                
+                <div class="lg:w-1/2">
+                    <div class="bg-gray-800/30 rounded-xl p-8 h-full">
+                        <h3 class="text-xl font-semibold mb-6 text-cyan-300">Contact Information</h3>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <i class="fas fa-envelope text-cyan-400 mt-1 mr-4"></i>
+                                <div>
+                                    <h4 class="font-medium">Email</h4>
+                                    <a href="mailto:Ssaava.Adam@gmail.com" class="text-gray-300 hover:text-cyan-300 transition-colors">
+                                        Ssaava.Adam@gmail.com
+                                    </a>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <i class="fas fa-phone text-cyan-400 mt-1 mr-4"></i>
+                                <div>
+                                    <h4 class="font-medium">Phone</h4>
+                                    <a href="tel:+256792306654" class="text-gray-300 hover:text-cyan-300 transition-colors">
+                                        +256 792 306654
+                                    </a>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <i class="fab fa-linkedin text-cyan-400 mt-1 mr-4"></i>
+                                <div>
+                                    <h4 class="font-medium">LinkedIn</h4>
+                                    <a href="https://www.linkedin.com/in/mr-ssaava-adam" target="_blank" class="text-gray-300 hover:text-cyan-300 transition-colors">
+                                        linkedin.com/in/mr-ssaava-adam
+                                    </a>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <i class="fab fa-github text-cyan-400 mt-1 mr-4"></i>
+                                <div>
+                                    <h4 class="font-medium">GitHub</h4>
+                                    <a href="https://github.com/Ssaava-Adam" target="_blank" class="text-gray-300 hover:text-cyan-300 transition-colors">
+                                        github.com/Ssaava-Adam
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-8 pt-6 border-t border-gray-700">
+                            <h4 class="font-medium mb-4 text-cyan-300">Connect with me</h4>
+                            <div class="flex space-x-4">
+                                <a href="https://www.linkedin.com/in/mr-ssaava-adam" target="_blank" class="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center hover:bg-cyan-600 transition-colors">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                <a href="https://github.com/Ssaava-Adam" target="_blank" class="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center hover:bg-cyan-600 transition-colors">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="https://wa.me/256792306654" target="_blank" class="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center hover:bg-cyan-600 transition-colors">
+                                    <i class="fab fa-whatsapp"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
- <!-- Footer -->
- <footer>
-  ⚡ Fun fact: I debug like a robot 🤖<br/>
-  © 2025 Ssaava Adam. All rights reserved.
- </footer>
+    <!-- Footer -->
+    <footer class="py-8 bg-gray-900 border-t border-gray-800">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <p class="text-gray-400">© 2025 Ssaava Adam. All rights reserved.</p>
+                </div>
+                <div class="flex items-center space-x-2 text-gray-400">
+                    <i class="fas fa-code text-cyan-400"></i>
+                    <p>Built with <span class="text-cyan-300">passion</span> and <span class="text-purple-300">creativity</span></p>
+                </div>
+            </div>
+        </div>
+    </footer>
 
- <!-- GSAP Animations -->
- <script>
-  gsap.from("header h1",{duration:1.5,y:-50,opacity:0,ease:"bounce"});
-  gsap.from("header h2",{duration:1.5,y:50,opacity:0,delay:0.3});
-  gsap.from(".section-title",{duration:1,opacity:0,y:30,stagger:0.2,scrollTrigger:{trigger:".section-title",start:"top 80%"}});
- </script>
+    <!-- Scripts -->
+    <script>
+        // Mobile Menu Toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
 
+        // GSAP Animations
+        gsap.registerPlugin(ScrollTrigger);
+        
+        // Hero animations
+        gsap.from(".hero-content h1", {
+            duration: 1,
+            y: 50,
+            opacity: 0,
+            ease: "power3.out"
+        });
+        
+        gsap.from(".hero-content h2", {
+            duration: 1,
+            y: 50,
+            opacity: 0,
+            delay: 0.3,
+            ease: "power3.out"
+        });
+        
+        gsap.from(".hero-content p", {
+            duration: 1,
+            y: 50,
+            opacity: 0,
+            delay: 0.6,
+            ease: "power3.out"
+        });
+        
+        gsap.from(".hero-content .flex", {
+            duration: 1,
+            y: 50,
+            opacity: 0,
+            delay: 0.9,
+            ease: "power3.out"
+        });
+        
+        gsap.from(".floating", {
+            duration: 1.5,
+            scale: 0.8,
+            opacity: 0,
+            delay: 1.2,
+            ease: "back.out(1.7)"
+        });
+        
+        // Section animations
+        gsap.utils.toArray('section').forEach(section => {
+            gsap.from(section, {
+                scrollTrigger: {
+                    trigger: section,
+                    start: "top 80%",
+                    end: "bottom 20%",
+                    toggleActions: "play none none reverse"
+                },
+                y: 50,
+                opacity: 0,
+                duration: 1,
+                ease: "power2.out"
+            });
+        });
+        
+        // Skill cards animation
+        gsap.from(".skill-card", {
+            scrollTrigger: {
+                trigger: "#skills",
+                start: "top 70%",
+                end: "bottom 30%",
+                toggleActions: "play none none reverse"
+            },
+            y: 50,
+            opacity: 0,
+            stagger: 0.1,
+            duration: 0.8,
+            ease: "power2.out"
+        });
+        
+        // Project cards animation
+        gsap.from(".project-card", {
+            scrollTrigger: {
+                trigger: "#projects",
+                start: "top 70%",
+                end: "bottom 30%",
+                toggleActions: "play none none reverse"
+            },
+            y: 50,
+            opacity: 0,
+            stagger: 0.2,
+            duration: 0.8,
+            ease: "power2.out"
+        });
+        
+        // Simple particles effect
+        function initParticles() {
+            const canvas = document.createElement('canvas');
+            canvas.id = 'particles-canvas';
+            document.getElementById('particles-js').appendChild(canvas);
+            
+            const ctx = canvas.getContext('2d');
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            
+            const particles = [];
+            const particleCount = 50;
+            
+            for (let i = 0; i < particleCount; i++) {
+                particles.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    size: Math.random() * 2 + 1,
+                    speedX: (Math.random() - 0.5) * 0.5,
+                    speedY: (Math.random() - 0.5) * 0.5,
+                    color: `rgba(0, 199, 255, ${Math.random() * 0.5})`
+                });
+            }
+            
+            function animateParticles() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                
+                particles.forEach(particle => {
+                    particle.x += particle.speedX;
+                    particle.y += particle.speedY;
+                    
+                    if (particle.x < 0 || particle.x > canvas.width) particle.speedX *= -1;
+                    if (particle.y < 0 || particle.y > canvas.height) particle.speedY *= -1;
+                    
+                    ctx.beginPath();
+                    ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
+                    ctx.fillStyle = particle.color;
+                    ctx.fill();
+                });
+                
+                requestAnimationFrame(animateParticles);
+            }
+            
+            animateParticles();
+            
+            window.addEventListener('resize', function() {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            });
+        }
+        
+        // Initialize particles when page loads
+        window.addEventListener('load', initParticles);
+    </script>
 </body>
 </html>
